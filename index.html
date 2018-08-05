@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PSTransit</title>
+    <!--Google Font - Lato -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <!-- CSS link-->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!-- Added Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+      <!--JQuery link-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--JS script-->
+    <script src="assets/app.js"></script>
+
+    Firebase script 
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+
+</head>
+
+<body>
+    <main class="container-Main">
+        <header>
+            <div id="Banner">
+                <i class="fas fa-ship"></i>
+                <div>
+                    &nbsp;| Puget Sound Transit Schedule |&nbsp;
+                </div>
+                <i class="fas fa-train"></i>
+            </div>
+        </header>
+        <div class="containerRow">
+            <div class="container-Col">
+                <div id="Stations" class="container-Col">
+                    <div class="headline">
+                        <h2>Stations</h2>
+                    </div>
+                    <div>
+                        <h3>East Side Train Stations</h3>
+                        <div>North</div>
+                        <div>
+                            <button>Vancouver, BC</button>
+                            <i class="fas fa-train"></i>
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div>
+                            <button>Bellingham</button>
+                            <i class="fas fa-train"></i>
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div>
+                            <button value="Everett">Everett</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>
+                            <button>Seattle</button>
+                            <i class="fas fa-train"></i>
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div>
+                            <button>Tacoma</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>
+                            <button>Olympia</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>South</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>West Side Train Stations</h3>
+                        <div>North</div>
+                        <div>
+                            <button>Pt. Gamble</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>
+                            <button>Kingston</button>
+                            <i class="fas fa-train"></i>
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div>
+                            <button>Pt. Orchard</button>
+                            <i class="fas fa-train"></i>
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div>
+                            <button>Shelton</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>
+                            <button>Olympia</button>
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <div>South</div>
+                    </div>
+
+                    <div>
+                        <h3>Ferry Terminals</h3>
+                    </div>
+
+
+                    <div>
+                        <button>Bainbridge Island</button>
+                        <i class="fas fa-ship"></i>
+                    </div>
+
+                    <div>
+                        <button>Vashon Island</button>
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div>
+                        <button>Friday Harbor</button>
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div>
+                        <button>Victoria, BC</button>
+                        <i class="fas fa-ship"></i>
+                    </div>
+
+
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, quam earum? Animi omnis inventore et dolores veniam
+                    fugit quidem suscipit, voluptatem iure cumque, sunt tenetur, odit magnam velit. Rem, beatae.
+                </div>
+                <div id="Routes" class="container-Col">
+                    <div class="headline">
+                        <h2>Routes</h2>
+                    </div>
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quo culpa ratione maxime quam corrupti fuga sunt eius
+                    minima maiores est et tempora vel quod iusto quis, delectus commodi autem?
+                </div>
+
+            </div>
+            <div id="info" class="container-Col">
+                <div class="headline">
+                    <div>
+                    <h2>Timetable</h2>
+                </div>
+                </div>
+                <div id="Station Details"></div>
+            </div>
+        </div>
+    </main>
+</body>
+  
+
+</html>
