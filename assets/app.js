@@ -6,9 +6,18 @@ var station = "Seattle";
 
 var allStations = ["Bainbridge Island", "Bellingham", "Everett", "Friday Harbor", "Kingston", "Olympia", "Pt. Gamble", "Port Orchard", "Pt. Townsend", "Seattle", "Shelton", "Tacoma", "Vancouver, BC", "Vashon Island", "Victoria, BC"];
 
-var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+
+function displayTime() {
+  var time = moment().format('HH:mm:ss');
+  $('#clock').html(time);
+  setTimeout(displayTime, 1000);
+}
+
+var database;
 
 $(document).ready(function () {
+
+  displayTime();
 
 var config = {
   apiKey: "AIzaSyD7rntgC4QnbllAUURTh1OVnwRUq3gv0W4",
@@ -23,21 +32,37 @@ var config = {
 firebase.initializeApp(config);
 
 
+//firebase is now connected to my .js  
+// 'ref' is how we get info.  Each entry has an id.
+database = firebase.database();
+var TrainData = database.ref('TrainData');
 
+TrainData.on('value', gotData, errData);
+
+function gotData(data){
+console.log(data.val());
+
+}
+function errData(err){
+  console.log('Error!');
+  console.log(err);
+}
 
   $("#info").append(`<div class="headline">${currentTime}</div>`);
 
   $("button").click(function () {
-    // console.log($(this).text());
-    var dataRef = firebase.database();
-    station = $(this).text();
-    console.log(station);
-    $("#info").append(`<div><div class="headline">`)
+   
+    
 
-    dataRef.ref().push({
-
-      Station: station,
-      // Destination: destination,
     });
+
+    
+    // console.log(dataRef);
+    // $("#info").append(`<div><div class="headline">`)
+
+    // dataRef.ref().push({
+
+    //   Station: station,
+    //   // Destination: destination,
+    // });
   })
-})
