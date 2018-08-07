@@ -19,6 +19,7 @@ $(document).ready(function () {
 
   displayTime();
   for (var i = 0; i < allStations.length; i++) {
+    
     if (allStations[i] !== "Seattle") {
       $("#DestinationSelect").append(`<option>${allStations[i]}</option>`)
     }
@@ -26,30 +27,51 @@ $(document).ready(function () {
 
   $(document).on("submit", function (event) {
     event.preventDefault();
-    $("#StationDetails").append(`<div class="container-Col"><table class="table">
-<thead>
-  <tr>
-    <th scope="col">Train Route</th>
-    <th scope="col">Destination</th>
-    <th scope="col">Frequency (min)</th>
-    <th scope="col">Next Arrival</th>
-    <th scope="col">Minutes Away</th>
+    var trainName = $("#trainNameInput").val().trim();
+    var destination = $("#DestinationSelect").val().trim();
+    var frequency = parseInt($("#FrequencyID").val().trim());
+    var firstArrival = $("#ArrivalID").val().trim();
 
-    </tr>
-</thead>
-<tbody>
-  <tr>
-    <th scope="row"></th>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+    var data = {
+      nameData: trainName,
+      destinationData: destination,
+      frequencyData: frequency,
+      firstArrivalData: firstArrival
+    }
+
+    AdminData.push(data);
+
+    var firstArrivalConverted = moment(firstArrival, "HH:mm").subtract(frequency, "years");
+    console.log(firstArrivalConverted);
+
+    var currentTime = moment();
+
+    var diffTime = moment().diff(moment(firstArrivalConverted), "minutes");
+    console.log("Difference in time" + diffTime);
+
+    var timeRemaining = diffTime % frequency;
+    console.log(timeRemaining);
+
+    var nextTrain = moment().add(timeRemaining, "minutes");
+    var nextArrival = nextTrain.format("hh:mm");
+    console.log(nextArrival);
+    console.log(moment());
+
+    $("#tableBody").append(` 
+      <tr>
+        <td scope = "col">${trainName}</td>
+        <td scope = "col">${destination}</td>
+        <td scope = "col">${frequency}</td>
+        <td scope = "col">${nextArrival}</td>
+        <td scope = "col">${timeRemaining}</td>
+      </tr>`
   
-</tbody>
-</table>
-</div>`)
+)
+
+
   })
+
+//configure database with firebase
   var config = {
     apiKey: "AIzaSyD7rntgC4QnbllAUURTh1OVnwRUq3gv0W4",
     authDomain: "pugetsoundtransit.firebaseapp.com",
@@ -58,17 +80,18 @@ $(document).ready(function () {
     storageBucket: "pugetsoundtransit.appspot.com",
     messagingSenderId: "877703187461"
   };
-
   //initialize
   firebase.initializeApp(config);
-
-
-  //firebase is now connected to my .js  
-  // 'ref' is how we get info.  Each entry has an id.
   database = firebase.database();
+  var AdminData = database.ref('AdminData');
   var TrainData = database.ref('TrainData');
 
+
+
+
+
   TrainData.on('value', gotData, errData);
+  AdminData.on('value', gotData, errData);
 
   function gotData(data) {
     console.log(data.val());
@@ -86,5 +109,11 @@ $(document).ready(function () {
 
   });
 
+  $(document).on("submit", function(){
+    
+
+
+
+  })
 
 })
