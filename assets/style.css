@@ -14,7 +14,12 @@
     display:flex;
 
 } */
-
+button{
+    background-color: #8E9B97;
+    color:  #F4EBDB;
+    border-radius: 5px;
+    margin: 2px;
+}
 header{
     display: flex;
     flex-direction: column;

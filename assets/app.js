@@ -18,12 +18,38 @@ var database;
 $(document).ready(function () {
 
   displayTime();
-for(var i=0; i < allStations.length; i++){
-  if(allStations[i] !== "Seattle"){
-    $("#DestinationSelect").append(`<option>${allStations[i]}</option>`)
+  for (var i = 0; i < allStations.length; i++) {
+    if (allStations[i] !== "Seattle") {
+      $("#DestinationSelect").append(`<option>${allStations[i]}</option>`)
+    }
   }
-}
+
+  $(document).on("submit", function (event) {
+    event.preventDefault();
+    $("#StationDetails").append(`<div class="container-Col"><table class="table">
+<thead>
+  <tr>
+    <th scope="col">Train Route</th>
+    <th scope="col">Destination</th>
+    <th scope="col">Frequency (min)</th>
+    <th scope="col">Next Arrival</th>
+    <th scope="col">Minutes Away</th>
+
+    </tr>
+</thead>
+<tbody>
+  <tr>
+    <th scope="row"></th>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
   
+</tbody>
+</table>
+</div>`)
+  })
   var config = {
     apiKey: "AIzaSyD7rntgC4QnbllAUURTh1OVnwRUq3gv0W4",
     authDomain: "pugetsoundtransit.firebaseapp.com",
