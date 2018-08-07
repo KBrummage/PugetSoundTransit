@@ -11,16 +11,19 @@
     <!--Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
-    <!-- CSS link-->
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+        <!-- CSS link-->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <!-- Added Moment JS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-      <!--JQuery link-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--JQuery link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--JS script-->
     <script src="assets/app.js"></script>
 
-    Firebase script 
+    <!-- Firebase script  -->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
 
 </head>
@@ -38,6 +41,32 @@
         </header>
         <div class="containerRow">
             <div class="container-Col">
+                <div id="Admin" class="container-Col">
+                    <div class="headline">
+                        <h2>Administrative</h2>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="TrainRouteCreator">Train Route Name</label>
+                            <input class="form-control" id="trainNameInput">
+                        </div>
+                        <div class="form-group">
+                            <label for="DestinationSelect">Destination Select</label>
+                            <select class="form-control" id="DestinationSelect" placeholder="Select A Destination">
+                            
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Frequency">Frequency</label>
+                            <input class="form-control" id="FrequencyID" placeholder="minutes">
+                        </div>
+                        <div class="form-group">
+                            <label for="FirstArrival">First Arrival</label>
+                            <input class="form-control" id="ArrivalID" placeholder="Military Time (2400)">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
                 <div id="Stations" class="container-Col">
                     <div class="headline">
                         <h2>Stations</h2>
@@ -143,16 +172,26 @@
             </div>
             <div id="info" class="container-Col">
                 <div class="headline">
-                    <div>
                     <h2>Timetable</h2>
-                </div>
-                <div class="headline"><b><span id="clock"></span></b></p></div>
+                    
+                    <div class="headline">
+                        <b>
+                            <span id="clock"></span>
+                        </b>
+                    </div>  
+                    </div>
+                    <div class="stationDetails">
+                        <div class="headline">
+                            <h1>Seattle Train Station</h1>
+                        </div>
+
+                    </div>
                 </div>
                 <div id="Station Details"></div>
             </div>
         </div>
     </main>
 </body>
-  
+
 
 </html>
