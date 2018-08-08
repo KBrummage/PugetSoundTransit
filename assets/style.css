@@ -45,11 +45,15 @@ header{
     align-content: center;
 }
 
+#LeftCol{
+    overflow: scroll;
+}
 .containerRow{
     display: flex;
     flex-direction: row;
     background-color: #537072;    
     width: 100%;
+    /* height: 100vh; */
     justify-content: center;
     align-content: center;
 }
